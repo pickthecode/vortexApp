@@ -1,0 +1,29 @@
+import { createFileRoute, redirect, Outlet } from "@tanstack/react-router";
+
+import { useUserStore } from "../../store/userStore";
+
+export const Route = createFileRoute("/_layout/user/")({
+  // beforeLoad 会在页面组件加载前执行
+  beforeLoad: () => {
+    const userInfo = useUserStore.getState().userInfo;
+    // 如果没有用户信息则返回登录页
+    if (!userInfo) {
+      throw redirect({
+        to: "/auth"
+      });
+    }
+  },
+  component: AdminPage
+});
+
+function AdminPage() {
+  return (
+    <div style={{ padding: "2rem", textAlign: "center" }}>
+      <h1>🛡️ Admin Dashboard</h1>
+      <p>嘘！这是受保护的 VIP 专区，只有本地存着 userInfo 的人才能进来！</p>
+      <div style={{ marginTop: "2rem", border: "2px dashed #ccc", padding: "2rem" }}>
+        <Outlet />
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,48 @@
+:root {
+  --dark-color: #000000a6;
+  --light-color: #ffffff;
+  --active-color: #52a8ff;
+  --link-color: #999;
+  --error-color: #a63125;
+  --error-font-color: #f6ebea;
+  --form-bg: radial-gradient(ellipse at top left, #2a313d 0%, #171a21 80%);
+  --form-color: #b5bbc3;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  /* 给 body 提供百分比参照点 */
+  height: 100%;
+}
+body {
+  /* 兼容不同系统中的字体显示   */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* 让 Mac 上的字体看起来更精致 */
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  color: var(--font-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 600px;
+  flex: 1;
+  flex-direction: column;
+  background-color: #ddd;
+}
+

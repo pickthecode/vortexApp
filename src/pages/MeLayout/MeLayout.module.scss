@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  .wrapper {
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap:10px;
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      height: 40px;
+      flex-shrink: 0;
+      font-size: 14px;
+      .home {
+        margin: 0 6px 2px 10px;
+      }
+    }
+    .main {
+      display: flex;
+      min-height: 530px;
+    }
+  }
+}
