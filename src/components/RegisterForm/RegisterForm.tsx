@@ -168,7 +168,7 @@ export default function RegisterForm({ onSwitchMode }: Props) {
             }));
           }
         } catch (error: any) {
-          // 配合上面的controller.abort()主动掐断2个请求中最先的请求 防止请求
+          // 配合上面的controller.abort()主动掐断2个请求中最先的请求 防止竟态
           if (axios.isCancel(error)) return;
           lastPassedAccount.current = "";
           setErrors((prev) => ({

@@ -15,7 +15,7 @@ declare module "axios" {
 
 // 创建全站通用的 Axios 实例
 const http = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL: import.meta.env.VITE_BASE_URL,
   // 请求超时时间
   // Axios 会抛出一个特定的错误（通常错误码是 ECONNABORTED，错误信息类似 timeout of 10000ms exceeded
   // 进入拦截器：代码会立刻进入你下面写的响应拦截器的 error 分支中。
@@ -62,7 +62,7 @@ http.interceptors.response.use(
         return Promise.reject(error);
       }
       // 如果是换票接口本身 (/refresh) 报 401，说明长票彻底死透！
-      if (config.url && config.url.includes("/auth/refresh")) {
+      if (config.url && config.url.includes("/api/auth/refresh")) {
         // 清空本地票据
         localStorage.removeItem("accessToken");
         useUserStore.getState().clearUserInfo();

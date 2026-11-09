@@ -37,6 +37,7 @@ export default function LoginForm({ onSwitchMode }: Props) {
     try {
       const res = await http.post(`${import.meta.env.VITE_API_BASE_URL}/auth`, data, {
         withCredentials: true,
+        // 发这个 Ajax 请求的时候，把相关的 Cookie 一起打包带给服务器
         _skipRefresh: true
       });
 
