@@ -34,7 +34,7 @@ const Header = () => {
   };
   const handleLogout = async () => {
     try {
-      await http.post("/auth/logout");
+      await http.post(`${import.meta.env.VITE_API_BASE_URL}/auth/logout`);
     } catch (error) {
       console.error("后端注销异常，执行本地强制清理", error);
     } finally {
